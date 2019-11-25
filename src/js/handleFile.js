@@ -201,6 +201,7 @@ function fragmentarArchivo(fuente) {
   // console.log(metaSourceCode);
 
   generarVci();
+  drawVCI(vci);
 }
 
 function generarVci() {
