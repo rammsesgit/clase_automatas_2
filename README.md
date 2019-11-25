@@ -8,7 +8,7 @@ Ingeniería en Sistemas Computacionales
 Lenguajes y Autómatas II  
 Practicas
 
-## Practica 5 : Simulación de la ejecución del vector de código intermedio expresiones aritméticas-lógicas-relacionales y condicionales
+## Práctica 5 : Simulación de la ejecución del vector de código intermedio expresiones aritméticas-lógicas-relacionales y condicionales
 
 ### 1. Objetivo
 
