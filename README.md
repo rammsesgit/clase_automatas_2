@@ -2,9 +2,9 @@
 Proyecto para la práctica 5 de la clase Lenguajes y autómatas 2.
 
 [Ver el proyecto](https://rammsesgit.github.io/clase_automatas_2/src "Sitio web")
-***
-___
-- - -
+***   
+___   
+- - -   
 
 Ingeniería en Sistemas Computacionales  
 Lenguajes y Autómatas II  
