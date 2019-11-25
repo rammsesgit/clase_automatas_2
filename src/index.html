@@ -6,12 +6,93 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>VCI | Lenguajes y autómatas 2</title>
 
+  <link rel="apple-touch-icon" sizes="57x57" href="./img/icon-its/apple-icon-57x57.png"/>
+  <link rel="apple-touch-icon" sizes="60x60" href="./img/icon-its/apple-icon-60x60.png"/>
+  <link rel="apple-touch-icon" sizes="72x72" href="./img/icon-its/apple-icon-72x72.png"/>
+  <link rel="apple-touch-icon" sizes="76x76" href="./img/icon-its/apple-icon-76x76.png"/>
+  <link rel="apple-touch-icon" sizes="114x114" href="./img/icon-its/apple-icon-114x114.png"/>
+  <link rel="apple-touch-icon" sizes="120x120" href="./img/icon-its/apple-icon-120x120.png"/>
+  <link rel="apple-touch-icon" sizes="144x144" href="./img/icon-its/apple-icon-144x144.png"/>
+  <link rel="apple-touch-icon" sizes="152x152" href="./img/icon-its/apple-icon-152x152.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/icon-its/apple-icon-180x180.png"/>
+  <link rel="icon" type="image/png" sizes="192x192"  href="./img/icon-its/android-icon-192x192.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/icon-its/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="96x96" href="./img/icon-its/favicon-96x96.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/icon-its/favicon-16x16.png"/>
+  <link rel="manifest" href="./img/icon-its/manifest.json"/>
+  <meta name="msapplication-TileColor" content="#ffffff"/>
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+  <meta name="theme-color" content="#ffffff"/>
+
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   
-  <h1>VCI</h1>
+  <header class="header container">
+    <h1>
+      Práctica 5:
+    </h1>
+    <h2>
+      Simulación de la ejecución del vector de código intermedio, expresiones aritméticaslógicas-relacionales y condicionales
+    </h2>
+  </header>
 
-  <script src="./js/javascript.js"></script>
+  <section class="description">
+    <div class="objective">
+      <h3>1. Objetivo</h3>
+      <p>
+        El alumno aplica los conceptos asociados para la ejecución del Vector de código
+        intermedio en expresiones aritméticas/lógica/relacionales incluyendo estructura
+        condicional IF-THEN-ELSE, utilizando el lenguaje de programación de su
+        elección.
+      </p>
+    </div>
+
+    <div class="developing">
+      <h3>2. Desarrollo</h3>
+      <p>
+        Modifique la práctica anterior e incorpore el código necesario utilizando el 
+        lenguaje de programación de su elección para obtener el vector de código 
+        intermedio, considerando lo siguiente: 
+        • Expresiones aritméticas-lógicas-relacionales (practica anterior) 
+        • Estructura condicional <b>(IF- THEN – ELSE/ SI-ENTONCES-SINO)</b>
+        Maneje la prioridad vista en clase, <b>utilice pila de operadores, pila de estatutos 
+        y pila de direcciones</b>, reutilice código de práctica anterior donde incluya
+        expresiones y manejo de estructura de control, <i>maneje entrada de datos a partir 
+        de un <u>archivo de texto</u>, considere estructuras anidadas. INCLUYA diseño de la 
+        aplicación acorde al lenguaje de programación en el reporte</i> y genere su 
+        correspondiente <b>pila de ejecución</b>, visualice comportamiento de pilas y 
+        resultados.
+      </p>
+    </div>
+  </section>
+
+  <section class="file-upload">
+    <label class="label" id="labelFile" for="fileInput">Seleccione un archivo (txt)</label>
+    <span class="rotated"><svg class="svg-inline--fa fa-hand-point-up fa-w-14" aria-hidden="true" data-prefix="far" data-icon="hand-point-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M105.6 83.2v86.177a115.52 115.52 0 0 0-22.4-2.176c-47.914 0-83.2 35.072-83.2 92 0 45.314 48.537 57.002 78.784 75.707 12.413 7.735 23.317 16.994 33.253 25.851l.146.131.148.129C129.807 376.338 136 384.236 136 391.2v2.679c-4.952 5.747-8 13.536-8 22.12v64c0 17.673 12.894 32 28.8 32h230.4c15.906 0 28.8-14.327 28.8-32v-64c0-8.584-3.048-16.373-8-22.12V391.2c0-28.688 40-67.137 40-127.2v-21.299c0-62.542-38.658-98.8-91.145-99.94-17.813-12.482-40.785-18.491-62.791-15.985A93.148 93.148 0 0 0 272 118.847V83.2C272 37.765 234.416 0 188.8 0c-45.099 0-83.2 38.101-83.2 83.2zm118.4 0v91.026c14.669-12.837 42.825-14.415 61.05 4.95 19.646-11.227 45.624-1.687 53.625 12.925 39.128-6.524 61.325 10.076 61.325 50.6V264c0 45.491-35.913 77.21-39.676 120H183.571c-2.964-25.239-21.222-42.966-39.596-59.075-12.65-11.275-25.3-21.725-39.875-30.799C80.712 279.645 48 267.994 48 259.2c0-23.375 8.8-44 35.2-44 35.2 0 53.075 26.4 70.4 26.4V83.2c0-18.425 16.5-35.2 35.2-35.2 18.975 0 35.2 16.225 35.2 35.2zM352 424c13.255 0 24 10.745 24 24s-10.745 24-24 24-24-10.745-24-24 10.745-24 24-24z"></path></svg></span>
+    <input class="input" type="file" name="fileInput" id="fileInput" accept=".txt"/>
+  </section>
+
+  <section class="outputs">
+    <h3 id="output1" class="output hidden">Archivo fuente:</h3>
+    <div id="sourceFile"></div>
+
+    <h3 id="output2" class="output hidden">VCI:</h3>
+    <div id="VCI"></div>
+
+    <h3 id="output3" class="output hidden">Pilas:</h3>
+    <div id="Pilas"></div>
+  </section>
+
+  <footer class="footer members">
+    <p><b>Integrantes:</b></p>
+    <ul>
+      <li>Isar Ramses Cadena Gaona</li>
+      <li>Sergio Ulises Saucedo Leyva</li>
+      <li>Marcela Kineret Rivera Santibañez</li>
+    </ul>
+  </footer>
+
+  <script src="./js/handleFile.js"></script>
 </body>
 </html>
