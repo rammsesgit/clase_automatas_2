@@ -13,14 +13,14 @@ let dummyVCI = ['x', '10', '=', 'x', 'x', '10', '=', 'x', 'x', '10',
 '=sdf', 'x', 'x', '1sefsef0', '=', 'x', '*']
 
 function drawVCI(VCIToDraw) {
-  for (let index = 0; index < VCIToDraw.length; index++) {
+  VCIToDraw.map((item, index) => {
     $VCI.innerHTML += `
       <td class="vci-element">
-        <div class="element">${VCIToDraw[index].string}</div>
+        <div class="element">${item.string}</div>
         <div class="position">${index + 1}</div>
       </td>
     `
-  }
+  })
 }
 
 function createVCI(vciElement) {
@@ -35,5 +35,5 @@ function startVCIProcess() {
     createVCI(metaSourceCode[row])
   }
 
-  drawVCI(dummyVCI)
+  drawVCI(vci)
 }

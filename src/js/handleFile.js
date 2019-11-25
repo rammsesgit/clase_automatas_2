@@ -15,14 +15,14 @@ function evaluar(matriz) {
       if (palabrasReservadas(matriz[i][j]) != null) {
         if (valorActual === 'then') {
           metaSourceCode.push({
-            token: 'condicional',
+            token: 'then',
             string: valorActual,
             priority: null,
             extra: 1
           });
         } else if (valorActual === 'if') {
           metaSourceCode.push({
-            token: 'condicional',
+            token: 'if',
             string: valorActual,
             priority: null,
             extra: 3
@@ -36,7 +36,7 @@ function evaluar(matriz) {
           });
         } else if (valorActual === 'until') {
           metaSourceCode.push({
-            token: 'repeat',
+            token: 'until',
             string: valorActual,
             priority: null,
             extra: 5
@@ -50,7 +50,7 @@ function evaluar(matriz) {
           });
         } else if (valorActual === 'do') {
           metaSourceCode.push({
-            token: 'while',
+            token: 'do',
             string: valorActual,
             priority: null,
             extra: 7
@@ -201,8 +201,35 @@ function fragmentarArchivo(fuente) {
 
 function generarVci() {
   metaSourceCode.map(item => {
-    if (item.token === 'numero') {
+    if (item.token === 'numero' || item.token === 'identificador' || item.token === 'write') {
       vci.push(item);
+    }
+    if (item.token === 'delimitador') {
+      while (ope.length > 0) {
+        vci.push(ope.pop());
+      }
+    }
+    if (item.token === 'cierraParentesis') {
+      while (ope[ope.length-1].token !== 'abreParentesis') {
+        vci.push(ope.pop());
+      }
+      ope.pop();
+    }
+    if (item.token === 'asignacion' || item.token === 'abreParentesis') {
+      ope.push(item);
+    }
+    if (item.token === 'aritmetico' || item.token === 'relacional' || item.token === 'logico') {
+      if (ope.length === 0) {
+        ope.push(item);
+      } else {
+        while (ope.length > 0 && obtenerPrioridad(item.string) <= obtenerPrioridad(ope[ope.length-1].string)) {
+          vci.push(ope.pop());
+        }
+        ope.push(item);
+      }
+    }
+    if (item.token === 'then') {
+      console.log('then');
     }
   });
 }
