@@ -31,28 +31,30 @@ let dummyMetaSourceCode = [
 ]
 
 let $VCI = document.getElementById('VCIContent')
-let VCI = ['x', '10', '=', 'x', 'x', '10', '=', 'x', 'x', '10',
+let dummyVCI = ['x', '10', '=', 'x', 'x', '10', '=', 'x', 'x', '10',
 '=sdf', 'x', 'x', '1sefsef0', '=', 'x', '*']
 
-function filterByTokens(vciElement) {
-  console.log(vciElement);
-}
-
-function drawVCI() {
-  for (let index = 0; index < VCI.length; index++) {
+function drawVCI(VCIToDraw) {
+  for (let index = 0; index < VCIToDraw.length; index++) {
     $VCI.innerHTML += `
       <td class="vci-element">
-        <div class="element">${VCI[index]}</div>
+        <div class="element">${VCIToDraw[index]}</div>
         <div class="position">${index + 1}</div>
       </td>
     `
   }
 }
 
-function startVCI(metaSourceCode = dummyMetaSourceCode) {
+function filterByTokens(vciElement) {
+  console.log(vciElement);
+}
+
+function startVCIProcess(metaSourceCode = dummyMetaSourceCode) {
   console.log(metaSourceCode);
 
   for (let row = 0; row < metaSourceCode.length; row++) {
     filterByTokens(metaSourceCode[row])
   }
+
+  drawVCI(dummyVCI)
 }
