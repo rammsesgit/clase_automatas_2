@@ -38,7 +38,7 @@ function drawVCI(VCIToDraw) {
   for (let index = 0; index < VCIToDraw.length; index++) {
     $VCI.innerHTML += `
       <td class="vci-element">
-        <div class="element">${VCIToDraw[index]}</div>
+        <div class="element">${VCIToDraw[index].string}</div>
         <div class="position">${index + 1}</div>
       </td>
     `

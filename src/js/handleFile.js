@@ -1,6 +1,11 @@
 let $sourceFile = document.getElementById('sourceFile')
 let $outputs = document.getElementById('outputs')
 let metaSourceCode = [];
+let vci = []
+let ope = []
+let est = []
+// let eje = [[]]
+// let res = {}
 
 function evaluar(matriz) {  
   for (let i = 0; i < matriz.length; i++) {
@@ -191,10 +196,15 @@ function fragmentarArchivo(fuente) {
   // console.log(metaSourceCode);
 
   generarVci();
+  drawVCI(vci);
 }
 
 function generarVci() {
-  
+  metaSourceCode.map(item => {
+    if (item.token === 'numero') {
+      vci.push(item);
+    }
+  });
 }
 
 function mostrarContenido(contenido) {
