@@ -9,8 +9,7 @@
   end
 */
 let $VCI = document.getElementById('VCIContent')
-let dummyVCI = ['x', '10', '=', 'x', 'x', '10', '=', 'x', 'x', '10',
-'=sdf', 'x', 'x', '1sefsef0', '=', 'x', '*']
+let dummyVCI = ['x', '14', '=', 'x', '20', '==', '11', 'then', 'write', 'x']
 
 function drawVCI(VCIToDraw) {
   VCIToDraw.map((item, index) => {
