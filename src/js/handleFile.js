@@ -1,9 +1,14 @@
 let $sourceFile = document.getElementById('sourceFile')
 let $outputs = document.getElementById('outputs')
 let metaSourceCode = [];
-let vci = []
-let ope = []
-let est = []
+let vci = [];
+let ope = [];
+let est = [];
+let dir = [];
+let ctx = null;
+// let pc-aux = 0;
+// let vv = 0;
+// let pc = 0;
 // let eje = [[]]
 // let res = {}
 
@@ -200,7 +205,7 @@ function fragmentarArchivo(fuente) {
 }
 
 function generarVci() {
-  metaSourceCode.map(item => {
+  metaSourceCode.map((item, ap) => {
     if (item.token === 'numero' || item.token === 'identificador' || item.token === 'write') {
       vci.push(item);
     }
@@ -228,8 +233,26 @@ function generarVci() {
         ope.push(item);
       }
     }
+    if (item.token === 'if') {
+      est.push(item); // almacena dirección actual
+    }
     if (item.token === 'then') {
-      console.log('then');
+      while (ope.length > 0) { // vacia pila de operadores
+        vci.push(ope.pop());
+      }
+      dir.push(vci.length); // almacena dirección
+      vci.push({token: 'falso'}); // genera token falso
+      vci.push({token: 'then', string: 'then'}) // genera token then
+      ctx = item;
+    }
+    if (item.token === 'end') {
+      if (ctx.token === 'then') {
+        vci[dir.pop()] = {
+          token: '', 
+          string: (vci.length + 1).toString(),
+          extra: ap
+        };
+      }
     }
   });
 }

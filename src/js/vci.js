@@ -35,5 +35,5 @@ function startVCIProcess() {
     createVCI(metaSourceCode[row])
   }
 
-  drawVCI(vci)
+  //drawVCI(vci)
 }
