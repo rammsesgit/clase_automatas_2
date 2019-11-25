@@ -97,6 +97,13 @@ body {
   font-size: .7rem;
 }
 
+button {
+  color: #28579c;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+}
+
 footer {
   margin: 35px auto 20px auto;
 }
