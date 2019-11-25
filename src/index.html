@@ -74,20 +74,29 @@
   </section>
 
   <section id="outputs" class="outputs hidden">
-    <h3 id="output1" class="output">Archivo fuente:</h3>
+    <h3 id="output1">Archivo fuente:</h3>
     <div id="sourceFile" class="source-file"></div>
-    <br/>
-    <h3 id="output2" class="output">VCI:</h3>
-    <div id="VCI" class="vci">
-      <table>
-        <tbody>
-          <tr id="VCIContent"></tr>
-        </tbody>
-      </table>
+    <br>
+    <button id="btnVCI" onclick="startVCIProcess()">Crear VCI</button>
+    <br>
+    <div id="output2" class="hidden">
+      <h3>VCI:</h3>
+      <div id="VCI" class="vci">
+        <table>
+          <tbody>
+            <tr id="VCIContent"></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button onclick="" style="margin-top: 20px;">Crear pila de ejecución</button>
     </div>
-    <br/>
-    <h3 id="output3" class="output">Pila de ejecución:</h3>
-    <div id="executionStack" class="execution-stack"></div>
+
+
+    <div id="output3" class="hidden">
+      <h3>Pila de ejecución:</h3>
+      <div id="executionStack" class="execution-stack"></div>
+    </div>
   </section>
 
   <footer class="footer members">
