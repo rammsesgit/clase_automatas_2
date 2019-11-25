@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>VCI | Lenguajes y autómatas 2</title>
+  <title>Práctica | Lenguajes y autómatas 2</title>
 
   <link rel="apple-touch-icon" sizes="57x57" href="./img/icon-its/apple-icon-57x57.png"/>
   <link rel="apple-touch-icon" sizes="60x60" href="./img/icon-its/apple-icon-60x60.png"/>
@@ -73,15 +73,21 @@
     <input class="input" type="file" name="fileInput" id="fileInput" accept=".txt"/>
   </section>
 
-  <section class="outputs">
-    <h3 id="output1" class="output hidden">Archivo fuente:</h3>
-    <div id="sourceFile"></div>
-
-    <h3 id="output2" class="output hidden">VCI:</h3>
-    <div id="VCI"></div>
-
-    <h3 id="output3" class="output hidden">Pila de ejecución:</h3>
-    <div id="executionStack"></div>
+  <section id="outputs" class="outputs hidden">
+    <h3 id="output1" class="output">Archivo fuente:</h3>
+    <div id="sourceFile" class="source-file"></div>
+    <br/>
+    <h3 id="output2" class="output">VCI:</h3>
+    <div id="VCI" class="vci">
+      <table>
+        <tbody>
+          <tr id="VCIContent"></tr>
+        </tbody>
+      </table>
+    </div>
+    <br/>
+    <h3 id="output3" class="output">Pila de ejecución:</h3>
+    <div id="executionStack" class="execution-stack"></div>
   </section>
 
   <footer class="footer members">

@@ -1,5 +1,5 @@
 let $sourceFile = document.getElementById('sourceFile')
-let $outputs = document.getElementsByClassName('output')
+let $outputs = document.getElementById('outputs')
 let metaSourceCode = [];
 
 function evaluar(matriz) {  
@@ -192,10 +192,7 @@ function fragmentarArchivo(fuente) {
 
 function mostrarContenido(contenido) {
   $sourceFile.innerText = contenido
-
-  for (let index = 0; index < $outputs.length; index++) {
-    $outputs[index].classList.remove('hidden')
-  }
+  $outputs.classList.remove('hidden')
 
   fragmentarArchivo(contenido)
 }

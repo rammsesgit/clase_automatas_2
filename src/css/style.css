@@ -32,7 +32,6 @@ body {
 
 .header {
   background-color: #007EA7;
-  background-color: #00A0E8;
   width: 100vw;
   color: #000;
   padding: 15px;
@@ -73,6 +72,29 @@ body {
 .rotated svg{
   width: 25px;
   transform: rotate(-34deg) translateY(10px);
+}
+
+.vci, .execution-stack {
+  border:2px solid #00A0E8;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: max-content;
+  max-width: 90vw;
+  overflow-x: auto;
+}
+
+.vci-element {
+  border: 1px solid #B9D6F2;
+  text-align: center;
+}
+.vci-element div {
+  padding: 10px;
+}
+.element {
+  border-bottom: 1px dotted rgb(131, 165, 197);
+}
+.position {
+  font-size: .7rem;
 }
 
 footer {
