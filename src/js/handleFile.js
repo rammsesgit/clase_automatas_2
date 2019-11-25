@@ -184,10 +184,17 @@ function fragmentarArchivo(fuente) {
     matriz.push(filas[index].split(' '))
   }
 
-  console.log(matriz);
+  // console.log(matriz);
   
   evaluar(matriz);
-  console.log(metaSourceCode);
+  
+  // console.log(metaSourceCode);
+
+  generarVci();
+}
+
+function generarVci() {
+  
 }
 
 function mostrarContenido(contenido) {
