@@ -8,12 +8,6 @@
       end
   end
 */
-let dummyVCI = [
-  {string: '', position: 0},
-  {string: '', position: 1},
-  {string: '', position: 2},
-  //...
-]
 
 let $executionStack = document.getElementById('executionStack')
 let executionStack = []
