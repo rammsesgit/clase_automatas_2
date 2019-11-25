@@ -34,7 +34,7 @@ let $VCI = document.getElementById('VCI')
 let VCI = []
 
 function filterByTokens(vciElement) {
-  
+  console.log(vciElement);
 }
 
 function drawVCI(position, string) {
@@ -45,6 +45,6 @@ function startVCI(metaSourceCode = dummyMetaSourceCode) {
   console.log(metaSourceCode);
 
   for (let row = 0; row < metaSourceCode.length; row++) {
-    filterByTokens(vci[row])
+    filterByTokens(metaSourceCode[row])
   }
 }
