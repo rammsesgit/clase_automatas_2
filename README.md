@@ -1,9 +1,7 @@
-# Clase lenguajes y autómatas 2
-Proyecto para la práctica 5 de la clase Lenguajes y autómatas 2.
+# Proyecto para la práctica 5 de la clase Lenguajes y autómatas 2.
 
-[Ver el proyecto](https://rammsesgit.github.io/clase_automatas_2/src "Sitio web")
-***   
-___   
+[Ver proyecto](https://rammsesgit.github.io/clase_automatas_2/src "Sitio web")
+
 - - -   
 
 Ingeniería en Sistemas Computacionales  
@@ -59,12 +57,12 @@ Ejemplo:
 
 ENTRADA: VCI de código fuente, por ejemplo
 
-![VCI](./.readme-static/vci.png)
+![VCI](https://rammsesgit.github.io/clase_automatas_2/assets/vci.png)
 
 SALIDA: valores que va tomando la pila de ejecución y valor final de la variable
 asignada x.
 
-![PE](./.readme-static/pe.png)
+![PE](https://rammsesgit.github.io/clase_automatas_2/assets/pe.png)
 
 ## SALIDA EN PANTALLA
 
