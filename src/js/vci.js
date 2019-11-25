@@ -30,15 +30,23 @@ let dummyMetaSourceCode = [
   {token: 'Identificador', string: 'end', priority: null, extra: null}
 ]
 
-let $VCI = document.getElementById('VCI')
-let VCI = []
+let $VCI = document.getElementById('VCIContent')
+let VCI = ['x', '10', '=', 'x', 'x', '10', '=', 'x', 'x', '10',
+'=sdf', 'x', 'x', '1sefsef0', '=', 'x', '*']
 
 function filterByTokens(vciElement) {
   console.log(vciElement);
 }
 
-function drawVCI(position, string) {
-  
+function drawVCI() {
+  for (let index = 0; index < VCI.length; index++) {
+    $VCI.innerHTML += `
+      <td class="vci-element">
+        <div class="element">${VCI[index]}</div>
+        <div class="position">${index + 1}</div>
+      </td>
+    `
+  }
 }
 
 function startVCI(metaSourceCode = dummyMetaSourceCode) {
