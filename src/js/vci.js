@@ -22,17 +22,7 @@ function drawVCI(VCIToDraw) {
   })
 }
 
-function createVCI(vciElement) {
-  console.log(vciElement);
-}
-
 function startVCIProcess() {
   btnVCI.classList.add('hidden')
   output2.classList.remove('hidden')
-
-  for (let row = 0; row < metaSourceCode.length; row++) {
-    createVCI(metaSourceCode[row])
-  }
-
-  //drawVCI(vci)
 }

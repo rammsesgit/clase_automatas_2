@@ -240,7 +240,6 @@ function generarVci() {
       while (true) {
         let current = ope.pop()
         if (current !== undefined && current.token !== 'abreParentesis') {
-          console.log(current);
           vci.push(current);
         } else {
           break;
