@@ -5,11 +5,11 @@ let vci = [];
 let ope = [];
 let est = [];
 let dir = [];
-let ctx = null;
+let ctx = [];
 // let pc-aux = 0;
 // let vv = 0;
 // let pc = 0;
-// let eje = [[]]
+// let eje = []
 // let res = {}
 
 function evaluar(matriz) {  
@@ -267,22 +267,22 @@ function generarVci() {
       dir.push(vci.length); // almacena dirección
       vci.push({token: 'falso'}); // genera token falso
       vci.push({token: 'then', string: 'then'}) // genera token then
-      ctx = item;
+      ctx.unshift(item.string);
     }
     if (item.token === 'else') {
       est.push(item);
       vci[dir.pop()] = {
         token: 'dir',
-        string: (vci.length + 2).toString(),
+        string: (vci.length + 3).toString(),
         extra: ap
       };
       dir.push(vci.length)
       vci.push({token: 'falso'});
       vci.push({token: 'else', string: 'else'})
-      ctx = item
+      ctx.unshift(item.string);
     }
     if (item.token === 'end') {
-      if (ctx.token === 'then' || ctx.token === 'else') {
+      if (ctx.pop() === 'then') {
         vci[dir.pop()] = {
           token: 'dir', 
           string: (vci.length + 1).toString(),
