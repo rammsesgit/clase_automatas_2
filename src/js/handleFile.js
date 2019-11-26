@@ -32,47 +32,54 @@ function evaluar(matriz) {
             priority: null,
             extra: 3
           });
+        } else if (valorActual === 'else') {
+          metaSourceCode.push({
+            token: 'else',
+            string: valorActual,
+            priority: null,
+            extra: 4
+          });
         } else if (valorActual === 'repeat') {
           metaSourceCode.push({
             token: 'repeat',
             string: valorActual,
             priority: null,
-            extra: 4
+            extra: 5
           });
         } else if (valorActual === 'until') {
           metaSourceCode.push({
             token: 'until',
             string: valorActual,
             priority: null,
-            extra: 5
+            extra: 6
           });
         } else if (valorActual === 'while') {
           metaSourceCode.push({
             token: 'while',
             string: valorActual,
             priority: null,
-            extra: 6
+            extra: 7
           });
         } else if (valorActual === 'do') {
           metaSourceCode.push({
             token: 'do',
             string: valorActual,
             priority: null,
-            extra: 7
+            extra: 8
           });
         } else if (valorActual === 'write') {
           metaSourceCode.push({
             token: 'write',
             string: valorActual,
             priority: null,
-            extra: 8
+            extra: 9
           });
         } else if (valorActual === 'end') {
           metaSourceCode.push({
             token: 'end',
             string: valorActual,
             priority: null,
-            extra: 9
+            extra: 10
           });
         }
       } else if (identificadores(matriz[i][j]) != null) {
@@ -125,28 +132,28 @@ function evaluar(matriz) {
             token: 'delimitador',
             string: valorActual,
             priority: null,
-            extra: 10
+            extra: 11
           });
         } else if (valorActual === '=') {
           metaSourceCode.push({
             token: 'asignacion',
             string: valorActual,
             priority: 0,
-            extra: 11
+            extra: 12
           });
         } else if (valorActual === '(') {
           metaSourceCode.push({
             token: 'abreParentesis',
             string: valorActual,
             priority: 0,
-            extra: 12
+            extra: 13
           });
         } else if (valorActual === ')') {
           metaSourceCode.push({
             token: 'cierraParentesis',
             string: valorActual,
             priority: 0,
-            extra: 13
+            extra: 14
           });
         }
       }
@@ -245,10 +252,22 @@ function generarVci() {
       vci.push({token: 'then', string: 'then'}) // genera token then
       ctx = item;
     }
+    if (item.token === 'else') {
+      est.push(item);
+      vci[dir.pop()] = {
+        token: 'dir',
+        string: (vci.length + 2).toString(),
+        extra: ap
+      };
+      dir.push(vci.length)
+      vci.push({token: 'falso'});
+      vci.push({token: 'else', string: 'else'})
+      ctx = item
+    }
     if (item.token === 'end') {
-      if (ctx.token === 'then') {
+      if (ctx.token === 'then' || ctx.token === 'else') {
         vci[dir.pop()] = {
-          token: '', 
+          token: 'dir', 
           string: (vci.length + 1).toString(),
           extra: ap
         };

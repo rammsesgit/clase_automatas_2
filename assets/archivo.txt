@@ -1,4 +1,6 @@
 x = 14 ; 
 if ( x < 20 ) then 
-write ( x ) ;  
+write ( x ) ; 
+else
+a = 10 * 3 ;
 end
