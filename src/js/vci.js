@@ -201,13 +201,13 @@ function obtenerPrioridad(string) {
     case "==":
       prioridad = 40;
       break
-    case "!":
+    case "~":
       prioridad = 30;
       break
-    case "&&":
+    case "&":
       prioridad = 20;
       break
-    case "||":
+    case "|":
       prioridad = 10;
       break
   }
