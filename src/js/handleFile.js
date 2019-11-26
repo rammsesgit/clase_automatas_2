@@ -225,10 +225,10 @@ function fragmentarArchivo(fuente) {
 
 function generarVci() {
   metaSourceCode.map((item, ap) => {
-    if (item.token === 'abreParentesis') {
+    if (item.token === 'abreParentesis' || item.token === 'asignacion') {
       ope.push(item);
     }
-    if (item.token === 'numero' || item.token === 'identificador' || item.token === 'write' || item.token === 'asignacion') {
+    if (item.token === 'numero' || item.token === 'identificador' || item.token === 'write') {
       vci.push(item);
     }
     if (item.token === 'delimitador') {
