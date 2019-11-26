@@ -1,17 +1,12 @@
-/*
-  Dummy source code:
-  
-  x = 14;
-  if (x < 20) then
-      begin
-          write(x);
-      end
-  end
-*/
-
 let $executionStack = document.getElementById('executionStack')
-let executionStack = []
+let pcAux = 0;
+let vv = 0;
+let pc = 0;
+let eje = [];
+let res = {};
 
-function startPEProcess() {
-  alert('proximamente')
+function startPEProcess(vci) {
+  for (let i = 0 ; i < vci.length ; i++) {
+    console.log(vci[i].string);
+  }
 }

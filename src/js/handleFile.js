@@ -1,16 +1,6 @@
 let $sourceFile = document.getElementById('sourceFile')
 let $outputs = document.getElementById('outputs')
 let metaSourceCode = [];
-let vci = [];
-let ope = [];
-let est = [];
-let dir = [];
-let ctx = [];
-let pcAux = 0;
-let vv = 0;
-let pc = 0;
-let eje = [];
-let res = {};
 
 function fragmentarArchivo(fuente) {
   let matriz = []
@@ -22,11 +12,7 @@ function fragmentarArchivo(fuente) {
   evaluar(matriz);
   generarVci();
   drawVCI(vci);
-  generarEjecucion();
-}
-
-function generarEjecucion() {
-  console.log('ejecución');
+  startPEProcess(vci);
 }
 
 function mostrarContenido(contenido) {

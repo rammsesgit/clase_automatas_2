@@ -1,4 +1,9 @@
 let $VCI = document.getElementById('VCIContent')
+let vci = [];
+let ope = [];
+let est = [];
+let dir = [];
+let ctx = [];
 
 function drawVCI(VCIToDraw) {
   VCIToDraw.map((item, index) => {
