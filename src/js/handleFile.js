@@ -177,17 +177,29 @@ function obtenerPrioridad(string) {
     case "-":
       prioridad = 50;
       break
-    case "<" || ">" || "<=" || ">=" || "==":
+    case "<":
+      prioridad = 40;
+      break
+    case ">":
+      prioridad = 40;
+      break
+    case "<=":
+      prioridad = 40;
+      break
+    case ">=":
+      prioridad = 40;
+      break
+    case "==":
       prioridad = 40;
       break
     case "!":
-      prioridad = 30
+      prioridad = 30;
       break
     case "&&":
-      prioridad = 20
+      prioridad = 20;
       break
     case "||":
-      prioridad = 10
+      prioridad = 10;
       break
   }
 
@@ -213,7 +225,10 @@ function fragmentarArchivo(fuente) {
 
 function generarVci() {
   metaSourceCode.map((item, ap) => {
-    if (item.token === 'numero' || item.token === 'identificador' || item.token === 'write') {
+    if (item.token === 'abreParentesis') {
+      ope.push(item);
+    }
+    if (item.token === 'numero' || item.token === 'identificador' || item.token === 'write' || item.token === 'asignacion') {
       vci.push(item);
     }
     if (item.token === 'delimitador') {
@@ -222,13 +237,15 @@ function generarVci() {
       }
     }
     if (item.token === 'cierraParentesis') {
-      while (ope[ope.length-1].token !== 'abreParentesis') {
-        vci.push(ope.pop());
+      while (true) {
+        let current = ope.pop()
+        if (current !== undefined && current.token !== 'abreParentesis') {
+          console.log(current);
+          vci.push(current);
+        } else {
+          break;
+        }
       }
-      ope.pop();
-    }
-    if (item.token === 'asignacion' || item.token === 'abreParentesis') {
-      ope.push(item);
     }
     if (item.token === 'aritmetico' || item.token === 'relacional' || item.token === 'logico') {
       if (ope.length === 0) {
