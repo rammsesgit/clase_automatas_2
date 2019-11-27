@@ -9,9 +9,8 @@ function startPEProcess(vci) {
   console.log(vci);
   for (let i = 0 ; i < vci.length ; i++) {
     let current = vci[i].string;
+
     console.log(eje);
-    console.log(res);
-    console.log(i);
     
     if (current === '=') {
       let value = eje.pop();
@@ -28,7 +27,11 @@ function startPEProcess(vci) {
     } else if (current === 'else') {
       i = eje.pop();
     } else if (current === 'write') {
-      console.log(res[vci[i+1].string]);
+      if (vci[i+1].string in res) {
+        console.log(res[vci[i+1].string]);
+      } else {
+        console.log(vci[i+1].string);
+      }
       i += 1;
       continue;
     } else if (numerosEnteros(current) != null) {
