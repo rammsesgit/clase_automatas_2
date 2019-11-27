@@ -6,8 +6,11 @@ let eje = [];
 let res = {};
 
 function startPEProcess(vci) {
+  console.log(vci);
   for (let i = 0 ; i < vci.length ; i++) {
     let current = vci[i].string;
+    console.log(eje);
+    console.log(res);
     
     if (current === '=') {
       let value = eje.pop();
@@ -24,12 +27,11 @@ function startPEProcess(vci) {
     } else if (current === 'else') {
       i = eje.pop();
     } else if (current === 'write') {
-      console.log(vci[i+1]);
-      i += 2;
+      console.log(res[vci[i+1].string]);
+      i += 1;
       continue;
     } else if (numerosEnteros(current) != null) {
-      eje.push(current);
-      console.log(eje);
+      eje.push(Number(current));
     } else if (operadoresAritmeticos(current) != null) {
       let second = eje.pop();
       let first = eje.pop();
@@ -57,19 +59,49 @@ function startPEProcess(vci) {
 }
 
 function evaluateArithmeticOperator(operator, first, second) {
-  if (numerosEnteros(first) && numerosEnteros(second)) {
+  if (!isNaN(first) && !isNaN(second)) {
     switch (operator) {
       case "/":
-        eje.push(first/second);
+        eje.push(Number(first)/Number(second));
         break;
       case "*":
-        eje.push(first*second);
+        eje.push(Number(first)*Number(second));
         break;
       case "+":
-        eje.push(first+second);
+        eje.push(Number(first)+Number(second));
         break;
       case "-":
-        eje.push(first-second);
+        eje.push(Number(first)-Number(second));
+        break;
+    }
+  } else if (identificadores(first) != null && numerosEnteros(second.toString()) != null) {
+    switch (operator) {
+      case "/":
+        eje.push(Number(res[first])/second);
+        break;
+      case "*":
+        eje.push(Number(res[first])*second);
+        break;
+      case "+":
+        eje.push(Number(res[first])+second);
+        break;
+      case "-":
+        eje.push(Number(res[first])-second);
+        break;
+    }
+  } else if (numerosEnteros(first.toString()) != null && identificadores(second) != null) {
+    switch (operator) {
+      case "/":
+        eje.push(first/Number(res[second]));
+        break;
+      case "*":
+        eje.push(first*Number(res[second]));
+        break;
+      case "+":
+        eje.push(first+Number(res[second]));
+        break;
+      case "-":
+        eje.push(first-Number(res[second]));
         break;
     }
   } else {
@@ -79,44 +111,44 @@ function evaluateArithmeticOperator(operator, first, second) {
 
 function evaluateRelationalOperator(operator, first, second) {
   if (operator === '>') {
-    if (identificadores(first) != null && numerosEnteros(second) != null) {
-      eje.push(res[first] > second);
-    } else if (numerosEnteros(first) != null && identificadores(second) != null) {
-      eje.push(first > res[second]);
-    } else {
+    if (!isNaN(first) && !isNaN(second)) {
       eje.push(first > second);
+    } else if (identificadores(first) != null && numerosEnteros(second) != null) {
+      eje.push(Number(res[first]) > Number(second));
+    } else if (numerosEnteros(first) != null && identificadores(second) != null) {
+      eje.push(Number(first) > Number(res[second]));
     }
   } else if (operator === '<') {
-    if (identificadores(first) != null && numerosEnteros(second) != null) {
-      eje.push(res[first] < second);
-    } else if (numerosEnteros(first) != null && identificadores(second) != null) {
-      eje.push(first < res[second]);
-    } else {
-      eje.push(first < second);
+    if (!isNaN(first) && !isNaN(second)) {
+      eje.push(first > second);
+    } else if (identificadores(first.toString()) != null && numerosEnteros(second.toString()) != null) {
+      eje.push(Number(res[first]) < Number(second));
+    } else if (numerosEnteros(first.toString()) != null && identificadores(second.toString()) != null) {
+      eje.push(Number(first) < Number(res[second]));
     }
   } else if (operator === '<=') {
-    if (identificadores(first) != null && numerosEnteros(second) != null) {
-      eje.push(res[first] <= second);
-    } else if (numerosEnteros(first) != null && identificadores(second) != null) {
-      eje.push(first <= res[second]);
-    } else {
-      eje.push(first <= second);
+    if (!isNaN(first) && !isNaN(second)) {
+      eje.push(first > second);
+    } else if (identificadores(first.toString()) != null && numerosEnteros(second.toString()) != null) {
+      eje.push(Number(res[first]) <= Number(second));
+    } else if (numerosEnteros(first.toString()) != null && identificadores(second.toString()) != null) {
+      eje.push(Number(first) <= Number(res[second]));
     }
   } else if (operator === '>=') {
-    if (identificadores(first) != null && numerosEnteros(second) != null) {
-      eje.push(res[first] >= second);
-    } else if (numerosEnteros(first) != null && identificadores(second) != null) {
-      eje.push(first >= res[second]);
-    } else {
-      eje.push(first >= second);
+    if (!isNaN(first) && !isNaN(second)) {
+      eje.push(first > second);
+    } else if (identificadores(first.toString()) != null && numerosEnteros(second.toString()) != null) {
+      eje.push(Number(res[first]) >= Number(second));
+    } else if (numerosEnteros(first.toString()) != null && identificadores(second.toString()) != null) {
+      eje.push(Number(first) >= Number(res[second]));
     }
   } else if (operator === '==') {
-    if (identificadores(first) != null && numerosEnteros(second) != null) {
-      eje.push(res[first] == second);
-    } else if (numerosEnteros(first) != null && identificadores(second) != null) {
-      eje.push(first == res[second]);
-    } else {
-      eje.push(first == second);
+    if (!isNaN(first) && !isNaN(second)) {
+      eje.push(first > second);
+    } else if (identificadores(first.toString()) != null && numerosEnteros(second.toString()) != null) {
+      eje.push(Number(res[first]) == Number(second));
+    } else if (numerosEnteros(first.toString()) != null && identificadores(second.toString()) != null) {
+      eje.push(Number(first) == Number(res[second]));
     }
   } else {
     console.log('No se puede realizar la operación [relacional] [' + first + ' ' + operator + ' ' + second + ']');

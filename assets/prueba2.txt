@@ -1,0 +1,11 @@
+x = 0 ;
+y = 1000 ;
+if ( 1 > 0 ) then
+    write ( y ) ;
+    if ( 10 > 6 ) then
+        y = 500 ;
+        x = 1343 - y / ( 34 + 1 ) ;
+    end
+end
+write ( x ) ;
+write ( y ) ;

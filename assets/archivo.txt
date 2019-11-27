@@ -1,9 +1,9 @@
 x = 14 ; 
 if ( x < 20 ) then 
-y = 40 ;
-if ( y > x ) then
-write ( x ) ; 
-else
-a = 10 * 3 ;
-end
+    y = 40 ;
+    if ( y < x ) then
+        write ( x ) ; 
+    else
+        a = 10 * 3 ;
+    end
 end
