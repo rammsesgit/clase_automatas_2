@@ -11,6 +11,7 @@ function startPEProcess(vci) {
     let current = vci[i].string;
     console.log(eje);
     console.log(res);
+    console.log(i);
     
     if (current === '=') {
       let value = eje.pop();
@@ -120,7 +121,7 @@ function evaluateRelationalOperator(operator, first, second) {
     }
   } else if (operator === '<') {
     if (!isNaN(first) && !isNaN(second)) {
-      eje.push(first > second);
+      eje.push(first < second);
     } else if (identificadores(first.toString()) != null && numerosEnteros(second.toString()) != null) {
       eje.push(Number(res[first]) < Number(second));
     } else if (numerosEnteros(first.toString()) != null && identificadores(second.toString()) != null) {
@@ -128,7 +129,7 @@ function evaluateRelationalOperator(operator, first, second) {
     }
   } else if (operator === '<=') {
     if (!isNaN(first) && !isNaN(second)) {
-      eje.push(first > second);
+      eje.push(first <= second);
     } else if (identificadores(first.toString()) != null && numerosEnteros(second.toString()) != null) {
       eje.push(Number(res[first]) <= Number(second));
     } else if (numerosEnteros(first.toString()) != null && identificadores(second.toString()) != null) {
@@ -136,7 +137,7 @@ function evaluateRelationalOperator(operator, first, second) {
     }
   } else if (operator === '>=') {
     if (!isNaN(first) && !isNaN(second)) {
-      eje.push(first > second);
+      eje.push(first >= second);
     } else if (identificadores(first.toString()) != null && numerosEnteros(second.toString()) != null) {
       eje.push(Number(res[first]) >= Number(second));
     } else if (numerosEnteros(first.toString()) != null && identificadores(second.toString()) != null) {
@@ -144,7 +145,7 @@ function evaluateRelationalOperator(operator, first, second) {
     }
   } else if (operator === '==') {
     if (!isNaN(first) && !isNaN(second)) {
-      eje.push(first > second);
+      eje.push(first == second);
     } else if (identificadores(first.toString()) != null && numerosEnteros(second.toString()) != null) {
       eje.push(Number(res[first]) == Number(second));
     } else if (numerosEnteros(first.toString()) != null && identificadores(second.toString()) != null) {
